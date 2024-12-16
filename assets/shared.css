@@ -1,0 +1,86 @@
+* {
+    touch-action: pan-y !important;
+}
+
+:host > * {
+    font-size: 100%;
+}
+
+:root {
+    --primary-color-rgb: 17, 17, 17;
+    --background-color-rgb: 238, 238, 238;
+
+    --background-color: rgb(var(--background-color-rgb));
+    --text-color: rgb(var(--primary-color-rgb));
+}
+
+.vantage {
+    appearance: none;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: currentColor;
+
+    display: flex;
+    gap: 0.5em;
+}
+
+.disadvantage .die {
+    height: 2.5em;
+}
+
+.advantage .die {
+    height: 3.5em;
+}
+
+.die {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: currentColor;
+    aspect-ratio: 1;
+    height: 3em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.die[data-sides="2"] {
+    clip-path: circle(50%);
+    background-color: red;
+}
+
+.die[data-sides="4"] {
+    clip-path: polygon(50% 7%, 100% 93%, 0 93%);
+    background-color: orange;
+}
+
+.die[data-sides="6"] {
+    clip-path: polygon(7% 7%, 93% 7%, 93% 93%, 7% 93%);
+    background-color: goldenrod;
+}
+
+.die[data-sides="8"] {
+    clip-path: polygon(50% 0, 90% 50%, 50% 100%, 10% 50%);
+    background-color: green;
+}
+
+.die[data-sides="10"] {
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    background-color: blue;
+}
+
+.die[data-sides="12"] {
+    clip-path: polygon(27.5% 7%, 72.5% 7%, 100% 50%, 72.5% 93%, 27.5% 93%, 0 50%);
+    background-color: indigo;
+}
+
+.die[data-sides="20"] {
+    clip-path: polygon(50% 0, 100% 27.5%, 100% 72.5%, 50% 100%, 0 72.5%, 0 27.5%);
+    background-color: red;
+}
+
+.die[data-sides="100"] {
+    background-color: violet;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Dice Roller</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="manifest" href="./diceroller.webmanifest" />
+        <link rel="icon" href="./assets/qdr_192.png" />
+        <link rel="stylesheet" href="./assets/style.css">
+    </head>
+    <body>
+        <div id="main">
+            <div id="results-container">
+            <div id="results"></div>
+            </div>
+            <div id="dice-tray">
+                <div id="config">
+                    <button type="button" id="new-roll">New Roll</button>
+                    <button type="button" id="clear">Clear</button>
+                </div>
+
+                <div><qdr-die sides="2"></qdr-die></div>
+                <div><qdr-die sides="4"></qdr-die></div>
+                <div><qdr-die sides="6"></qdr-die></div>
+                <div><qdr-die sides="8"></qdr-die></div>
+                <div><qdr-die sides="10"></qdr-die></div>
+                <div><qdr-die sides="12"></qdr-die></div>
+                <div><qdr-die sides="100"></qdr-die></div>
+
+                <div id="twenties">
+                    <div><qdr-die sides="20" vantage="dis"></qdr-die></div>
+                    <div><qdr-die sides="20"></qdr-die></div>
+                    <div><qdr-die sides="20" vantage="ad"></qdr-die></div>
+                </div>
+            </div>
+        </div>
+        <div id="settings-container">
+            <button type="button" id="settings">⚙️</button>
+        </div>
+
+        <dialog id="settings-dialog">
+            <form id="settings-form">
+                <label>
+                    Random Generator
+                    <select name="randomSource">
+                        <option value="default" selected>JS Random</option>
+                        <option value="legacyRO">Random.org (Legacy)</option>
+                    </select>
+                </label>
+                <button type="submit">OK</button>
+            </form>
+        </dialog>
+
+        <script src="https://unpkg.com/@randomorg/core@1.1.1" crossorigin="anonymous" integrity="sha384-+/ZZZ+THsVY8hgEcc5oZ8tTVu7h4EaccP7ybduOhbF0KgQGlULs2H1ZVWGqDlGH7"></script>
+        <script type="module" src="./src/index.js"></script>
+    </body>
+</html>

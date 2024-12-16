@@ -1,0 +1,22 @@
+{
+    "name": "Quantum Dice Roller",
+    "short_name": "QDR",
+    "description": "Dice roller with several sources of randomness",
+    "icons": [
+        {
+            "src": "./assets/qdr_192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./assets/qdr_512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "./index.html",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "theme_color": "#0a4997",
+    "background_color": "#0a4997"
+}

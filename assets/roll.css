@@ -1,0 +1,61 @@
+:host {
+    display: block;
+}
+
+#root {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+#dice .sides-container {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+}
+
+#dice .sides-container + .sides-container {
+    margin-block-start: 0.2em;
+}
+
+#dice .sub-dice {
+    display: flex;
+    gap: 0.2em;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.sub-total {
+    font-family: monospace;
+    width: 2.5ch;
+    font-size: 1.5rem;
+    text-align: right;
+}
+
+.sub-bonus, .sub-bonus-wrap {
+    font-family: monospace;
+    font-size: 1.5rem;
+    text-align: right;
+}
+
+.sub-bonus {
+    width: 2ch;
+    appearance: none;
+    -moz-appearance: textfield;
+    border: 0;
+    background: transparent;
+    color: currentColor;
+}
+
+.sub-bonus-wrap::before {
+    content: '+';
+    margin-inline-start: 1rem;
+}
+
+#total {
+    font-family: monospace;
+    min-width: 3.5ch;
+    font-size: 3rem;
+    text-align: right;
+}
