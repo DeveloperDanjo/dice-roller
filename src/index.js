@@ -44,7 +44,9 @@ let lastRoll;
 const addNewRoll = () => {
     lastRoll = /** @type {Roll} */(document.createElement('qdr-roll'));
     results.append(lastRoll);
-    lastRoll.scrollIntoView({ behavior: 'instant', block: 'end' });;
+    requestAnimationFrame(() => {
+        results.parentElement.scrollTo(0, Number.MAX_SAFE_INTEGER);
+    });
 };
 addNewRoll();
 
@@ -85,6 +87,24 @@ diceTray.addEventListener('click', async (e) => {
 
     trigger.addEventListener('click', (e) => {
         dialog.showModal();
+
+        dialog.querySelector('[name="randomSource"]').value = random.name;
+
+        const table = dialog.querySelector('#cache-table tbody');
+        table.innerHTML = '';
+
+        diceTray.querySelectorAll('qdr-die:not([vantage])').forEach((/** @type {Die} */ d) => {
+            const row = dialog.ownerDocument.createElement('tr');
+            const histo = random.getHisto(d.sides) ?? [];
+            const total = histo.reduce((s, n) => (s + n), 0);
+            let percent = histo.map((n) => ((n * 100) / total));
+            const sides = d.sides;
+            if (sides > 20) {
+                percent = null;
+            }
+            row.innerHTML = `<td>${sides}</td><td>${random.getCacheSize(sides)}</td><td><pre style="font-size: 0.7em;">${JSON.stringify(percent)}</pre></td>`;
+            table.append(row);
+        });
     });
 
     form.addEventListener('change', (e) => {
